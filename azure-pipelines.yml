@@ -13,7 +13,9 @@ pool:
 
 stages:
 - stage: Build
-      steps:
+  jobs:
+  - job: Build
+    steps:
     - task: AzureCLI@2  
       displayName: 'build bicep artifact' 
       inputs: 
@@ -29,19 +31,4 @@ stages:
         ArtifactName: 'finishedTemplate'  
         publishLocation: 'Container' 
 
-- stage: deploy
-            steps:
-          - checkout: self
-          - task: AzureCLI@2
-            displayName: 'deploy bicep template'
-            inputs:
-              azureSubscription: $(azureSubscription) 
-              scriptType: 'pscore'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                az group create --name $(ResourceGroupName) --location $(location)
-                az deployment group create  `
-                --template-file $(Build.SourcesDirectory)/main.bicep `
-                --parameters $(Build.SourcesDirectory)/main.parameters.json `
-                --resource-group $(ResourceGroupName) `
-                --parameters resourcePrefix=$(resourceprefix)
+-
