@@ -30,5 +30,3 @@ stages:
         PathtoPublish: '$(Build.SourcesDirectory)/main.json'  
         ArtifactName: 'finishedTemplate'  
         publishLocation: 'Container' 
-
--
