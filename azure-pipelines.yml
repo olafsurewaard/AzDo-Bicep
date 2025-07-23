@@ -3,9 +3,9 @@ trigger:
 - main
 
 variables:
-  resourceGroupName: 'example'
+  resourceGroupName: 'olafsa_rg'
   location: 'westeurope'
-  azureSubscription: 'AzureConnection'
+  azureSubscription: 'Olafsc'
   resourcePrefix: 'bicep'
 
 pool:
