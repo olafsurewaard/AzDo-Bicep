@@ -13,9 +13,7 @@ pool:
 
 stages:
 - stage: Build
-  jobs:
-  - job: Build
-    steps:
+      steps:
     - task: AzureCLI@2  
       displayName: 'build bicep artifact' 
       inputs: 
@@ -32,14 +30,7 @@ stages:
         publishLocation: 'Container' 
 
 - stage: deploy
-  jobs:
-  - deployment: biceptoAzure
-    displayName: 'Deploy bicep to Azure'
-    environment: 'AzureDeployment'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
+            steps:
           - checkout: self
           - task: AzureCLI@2
             displayName: 'deploy bicep template'
