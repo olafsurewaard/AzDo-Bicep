@@ -5,7 +5,7 @@ trigger:
 variables:
   resourceGroupName: 'olafsa_rg'
   location: 'westeurope'
-  azureSubscription: 'Olafsc'
+  azureSubscription: 'olafsubsc'
   resourcePrefix: 'bicep'
 
 pool:
